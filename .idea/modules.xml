@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/VogueZone.iml" filepath="$PROJECT_DIR$/VogueZone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VogueZone-master/VogueZone-master.iml" filepath="$PROJECT_DIR$/VogueZone-master/VogueZone-master.iml" />
+    </modules>
+  </component>
+</project>
