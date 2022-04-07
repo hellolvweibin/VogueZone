@@ -1,11 +1,11 @@
 <template>
   <div>
     <Header/>
-<!--    <div style="height: 20%;width:2000px;border: 1px solid #0c0c0c;"></div>-->
+    <!--    <div style="height: 20%;width:2000px;border: 1px solid #0c0c0c;"></div>-->
 
     <br> <br><br>
 
-    <div class="line2" ><br><br><br><br><br><br><br><br><br><br></div>
+    <div class="line2"><br><br><br><br><br><br><br><br><br><br></div>
 
     <br><br><br><br><br><br><br><br><br><br>
     <div class="title">
@@ -20,7 +20,9 @@
 
     <!--    <el-image src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/bg10.png" style="width: auto;height: auto">-->
     <!--    </el-image>-->
-    <div class="line2" ><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+    <div class="line2">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
     <div class="image">
       <div class="a">
         <el-image
@@ -69,8 +71,9 @@
       <span
         style="color:black;font-family:Apple,serif;font-size: 80px;font-weight:bold;font-style: italic;margin-top: 100px">FORUM </span><br>
       <span
-        style="font-family:Apple,serif;font-size: 15px;font-weight:bold;margin-top: 40px;float: right">点击我！从这里开始讲述您与时尚的故事，总有一些</span><br>
-      <span style="font-family:Apple,serif;font-size: 15px;font-weight:bold;margin-top: 40px">内容适合您，来让跟多人来了解你吧！</span>
+        style="font-family:Apple,serif;font-size: 15px;font-weight:bold;margin-top: 40px;position: relative">点击我！从这里开始讲述您与时尚的故事，总有一些</span><br>
+      <span
+        style="font-family:Apple,serif;font-size: 15px;font-weight:bold;margin-top: 40px">内容适合您，来让跟多人来了解你吧！</span><br>
       <br><br>
 
       <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-key"
@@ -80,20 +83,11 @@
 
     </div>
 
-    <br><br> <br><br><br><br><br><br><br>
-
-    <div class="vogue">
-      <span
-        style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic;position: absolute;right: 60%">潮流前线</span><br>
-
-      <span
-        style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic;position: absolute;left: 29%;margin-top: 3%">在这里你能看到最新的潮流信息!</span>
-      <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-thumb"
-                 style="color: white;position: absolute;right: 61%;top: 210%">
-        立即浏览
-      </el-button>
+    <br><br> <br>
+    <div class="line2">
+      <br><br><br><br><br><br><br><br><br>
     </div>
-
+    <div style="height: 200px"></div>
 
     <div class="image1">
       <div class="i">
@@ -101,24 +95,43 @@
           src="https://static.wixstatic.com/media/94e66f_d34edcd255794508a058ef7140b9ee49~mv2.jpg/v1/fill/w_370,h_246,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/94e66f_d34edcd255794508a058ef7140b9ee49~mv2.jpg"/>
       </div>
       <br>
+      <div class="vogue" style="position: relative;margin-left: -30%">
+        <div>
+          <span style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic;">潮流前线</span><br>
+        </div>
+        <br>
+        <div>
+              <span
+                style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic;">在这里你能看到最新的潮流信息!</span>
+        </div>
+        <br><br><br><br>
+
+
+        <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-thumb"
+                   style="color: white">
+          立即浏览
+        </el-button>
+      </div>
+
+
+    </div>
+    <br> <br> <br> <br> <br> <br>
+    <div style="height: 200px"></div>
+    <div class="model">
+      <span
+        style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">模特之家</span><br>
+
+      <span
+        style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic">来看看他们是怎么塑造时尚的!</span>
+      <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-wind-power"
+                 style="color: white;">
+        即刻体验
+      </el-button>
 
       <div class="j">
         <el-image
-          src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/IMG_5494.JPG"/>
+          src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/IMG_5494.JPG" style="width: 370px;height: 246px"/>
       </div>
-    </div>
-    <br> <br> <br> <br> <br> <br>
-
-    <div class="model">
-      <span
-        style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic;position: absolute;right: 38%;top:240%">模特之家</span><br>
-
-      <span
-        style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic;position: absolute;right: 35%;top:250%">来看看他们是怎么塑造时尚的!</span>
-      <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-wind-power"
-                 style="color: white;position: absolute;left: 55%;top: 265%">
-        即刻体验
-      </el-button>
     </div>
 
 
@@ -205,7 +218,7 @@ export default {
   position: absolute;
   z-index: 5;
   left: -200px;
-  top:280px;
+  top: 280px;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -246,18 +259,22 @@ export default {
 }
 
 .i {
-  position: relative;
-  top: 190%;
-  left: 50%;
+  position: absolute;
+  right: -186px;
+  top: 2050px;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
 
 }
 
 .j {
-  position: relative;
-  top: 240%;
-  right: 55%;
-  width: 100%;
-  height: auto;
+  position: absolute;
+
+  right: 300px;
+  top: 3050px;
+
   max-width: 100%;
   display: block;
 
