@@ -97,7 +97,8 @@
       <br>
       <div class="vogue" style="position: relative;margin-left: -30%">
         <div>
-          <span style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic;">潮流前线</span><br>
+          <span
+            style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic;">潮流前线</span><br>
         </div>
         <br>
         <div>
@@ -115,24 +116,46 @@
 
 
     </div>
+    <div style="height: 70px"></div>
+
+    <div class="line2">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
     <br> <br> <br> <br> <br> <br>
     <div style="height: 200px"></div>
-    <div class="model">
-      <span
-        style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">模特之家</span><br>
-
-      <span
-        style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic">来看看他们是怎么塑造时尚的!</span>
-      <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-wind-power"
-                 style="color: white;">
-        即刻体验
-      </el-button>
+    <div class="image2">
 
       <div class="j">
         <el-image
-          src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/IMG_5494.JPG" style="width: 370px;height: 246px"/>
+          src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/IMG_5494.JPG"
+          style="width: 370px;height: 246px"/>
       </div>
+      <div class="model" style="position: relative;margin-right: -30%">
+        <div>
+          <span
+            style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">模特之家</span><br>
+        </div>
+        <div><br><br>
+        <span
+          style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic">来看看他们是怎么塑造时尚的!</span>
+        </div><br><br><br><br>
+
+        <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-wind-power"
+                   style="color: white;">
+          即刻体验
+        </el-button>
+      </div>
+      <br><br><br><br>
+
+
+
     </div>
+
+    <div class="line2">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+
 
 
   </div>
@@ -271,13 +294,12 @@ export default {
 
 .j {
   position: absolute;
-
-  right: 300px;
-  top: 3050px;
-
+  left:-186px;
+  top: 2700px;
+  width: 100%;
+  height: auto;
   max-width: 100%;
   display: block;
-
 }
 
 .z {
