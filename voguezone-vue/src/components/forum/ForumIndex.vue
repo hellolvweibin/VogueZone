@@ -2,26 +2,26 @@
 
   <div>
 
-      <Header/>
-      <el-menu
-        class="el-menu"
-        router
-        mode="horizontal"
-        background-color="white"
-        text-color="#222"
-        active-text-color="black"
-        style="min-width: 1300px">
+    <Header/>
+    <el-menu
+      class="el-menu"
+      router
+      mode="horizontal"
+      background-color="white"
+      text-color="#222"
+      active-text-color="black"
+      style="min-width: 1300px">
 
-        <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name"
-                      style="font-size: 20px;margin-left: 20px;font-family: Apple,serif">
-          {{ item.navItem }}
-        </el-menu-item>
-        <search-bar
-          style="margin-top: 20px;float: right"></search-bar>
-      </el-menu>
+      <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name"
+                    style="font-size: 20px;margin-left: 20px;font-family: Apple,serif">
+        {{ item.navItem }}
+      </el-menu-item>
+      <search-bar
+        style="margin-top: 20px;float: right"></search-bar>
+    </el-menu>
     <span style="font-family:Apple,serif;font-size: 80px;font-weight:bold;font-style: italic;margin-top: 100px">EXPLORE OUR FORUM</span><br>
     <span style="font-family:Apple,serif;font-size: 30px;font-weight:bold;font-style: italic;margin-top: 40px">加入我们，展示你的美！</span><br><br><br><br><br><br>
-    <el-button style="float: right;margin-right: 500px;background-color:#312c2c;color: white ">我也想展示</el-button>
+
 
 
   </div>
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-.el-menu{
+.el-menu {
   margin-top: 50px;
   margin-left: 200px;
   margin-right: 100px;
