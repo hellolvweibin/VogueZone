@@ -20,7 +20,7 @@
 
     <!--    <el-image src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/bg10.png" style="width: auto;height: auto">-->
     <!--    </el-image>-->
-    <div class="line2" ><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+    <div class="line2" ><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
     <div class="image">
       <div class="a">
         <el-image
@@ -215,8 +215,8 @@ export default {
 .f {
   position: absolute;
   z-index: 6;
-  left: 550px;
-  top: 580px;
+  left: -150px;
+  top: 120px;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -226,8 +226,8 @@ export default {
 .g {
   position: absolute;
   z-index: 7;
-  left: 700px;
-  top: 890px;
+  left: -380px;
+  top: 380px;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -237,8 +237,8 @@ export default {
 .h {
   position: absolute;
   z-index: 8;
-  left: 750px;
-  top: 600px;
+  left: -330px;
+  top: 60px;
   width: 100%;
   height: auto;
   max-width: 100%;
