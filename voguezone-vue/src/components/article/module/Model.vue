@@ -1,5 +1,11 @@
 <template>
-<side-menu/>
+<div class="body">
+  <side-menu/>
+
+  <div></div>
+
+
+</div>
 </template>
 
 <script>

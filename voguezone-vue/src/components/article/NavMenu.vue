@@ -1,19 +1,31 @@
 <template>
-  <el-menu
-    :default-active="'/index'"
-    router
-    mode="horizontal"
-    background-color="white"
-    text-color="#222"
-    active-text-color="black"
-    style="min-width: 1300px">
-    <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name"
-                  style="font-size: 20px;margin-left: 20px;font-family: Apple,serif">
-      {{ item.navItem }}
-    </el-menu-item>
-    <search-bar
-    style="position: relative;top: 15px;right: -10%"></search-bar>
-  </el-menu>
+
+  <div>
+    <el-menu
+      :default-active="'/index'"
+      router
+      mode="horizontal"
+      background-color="white"
+      text-color="#222"
+      active-text-color="black"
+      style="min-width: 1300px">
+      <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name"
+                    style="font-size: 20px;margin-left: 20px;font-family: Apple,serif">
+        {{ item.navItem }}
+      </el-menu-item>
+      <div style="float: right;margin-right: 100px;margin-top: 15px">
+        <search-bar
+
+        ></search-bar>
+      </div>
+
+    </el-menu>
+
+  </div>
+
+
+
+
 
 
 </template>
@@ -36,7 +48,14 @@ export default {
   }
 }
 </script>
+.line2 {
+border-right: #0c0c0c 2px solid;
+float: left;
+height: 100%;
+width: 50%;
 
+
+}
 <style scoped>
 a {
   text-decoration: none;

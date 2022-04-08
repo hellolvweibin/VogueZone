@@ -5,7 +5,8 @@
     class="categories"
     default-active="0"
     @select="handleSelect"
-    active-text-color="black">
+    active-text-color="black"
+    style="float: left;left: -50%;margin-top: 10px">
     <el-menu-item index="0">
       <i class="el-icon-menu"></i>
       <span class="icon-model" slot="title">全部</span>
@@ -33,20 +34,19 @@
 <script>
 export default {
   name: 'SideMenu',
-  data(){
-    return{
-      cid:''
+  data() {
+    return {
+      cid: ''
     }
   },
   methods: {
-    handleSelect(key,keyPath){
-      this.cid=key
+    handleSelect(key, keyPath) {
+      this.cid = key
       this.$emit('indexSelect')
     }
   }
 }
 </script>
-
 
 
 <style scoped>
@@ -57,9 +57,10 @@ export default {
   top: 200px;
   width: 150px;
 }
-.icon-model{
+
+.icon-model {
   font-size: 18px;
-  font-family: Apple,serif;
+  font-family: Apple, serif;
 }
 
 </style>
