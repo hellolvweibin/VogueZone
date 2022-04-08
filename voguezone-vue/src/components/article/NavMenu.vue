@@ -12,7 +12,7 @@
       {{ item.navItem }}
     </el-menu-item>
     <search-bar
-    style="margin-top: 20px;float: right"></search-bar>
+    style="position: relative;top: 15px;right: -10%"></search-bar>
   </el-menu>
 
 

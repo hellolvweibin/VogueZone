@@ -23,7 +23,7 @@
       <span slot="title" class="icon-model">职业</span>
     </el-menu-item>
     <el-menu-item index="4">
-      <i class="el-icon-loading"></i>
+      <i class="el-icon-position"></i>
       <span slot="title" class="icon-model">生活</span>
     </el-menu-item>
 

@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 0px;padding: 0px;border: 0px">
+  <div style="min-width: 100%">
     <Header/>
     <!--    <div style="height: 20%;width:2000px;border: 1px solid #0c0c0c;"></div>-->
 
@@ -76,7 +76,7 @@
         style="font-family:Apple,serif;font-size: 15px;font-weight:bold;margin-top: 40px">内容适合您，来让跟多人来了解你吧！</span><br>
       <br><br>
 
-      <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-key"
+      <el-button @click="$router.push({path:'/forum'})" class="button_ensure" icon="el-icon-key"
                  style="color: white">
         加入我们！
       </el-button>
@@ -108,7 +108,7 @@
         <br><br><br><br>
 
 
-        <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-thumb"
+        <el-button @click="$router.push({path:'/forum'})" class="button_ensure" icon="el-icon-thumb"
                    style="color: white">
           立即浏览
         </el-button>
@@ -130,7 +130,7 @@
           src="https://images.pexels.com/photos/247204/pexels-photo-247204.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           style="width: 370px;height: 246px"/>
       </div>
-      <div class="model" style="position: relative;margin-right: -30%;box-sizing:border-box;">
+      <div class="model" style="position: absolute;right: 28%">
         <div>
           <span
             style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">模特之家</span><br>
@@ -141,12 +141,12 @@
         </div>
         <br><br><br><br>
 
-        <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-wind-power"
+        <el-button @click="$router.push({path:'/model'})" class="button_ensure" icon="el-icon-wind-power"
                    style="color: white;">
           即刻体验
         </el-button>
       </div>
-      <br><br><br><br>
+      <div style="height: 400px"></div>
 
 
     </div>
@@ -215,8 +215,8 @@ export default {
 .b {
   position: absolute;
   z-index: 2;
-  left: 350px;
-  top: 60px;
+  right: -377px;
+  top: 47px;
   width: 100%;
   height: auto;
   max-width: 100%;

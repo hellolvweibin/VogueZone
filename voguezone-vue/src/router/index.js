@@ -48,12 +48,7 @@ export default new Router({
       name:ArticleEditor,
       component:ArticleEditor
     },
-    // {
-    //   path:'/forum',
-    //   name:ForumIndex,
-    //   component:ForumIndex
-    //
-    // },
+
     {
       path:'/article',
       name:'Article',
@@ -80,6 +75,10 @@ export default new Router({
           component:Idea
         },
       ]
+    },
+    {
+      path:'*',
+      redirect:'/index'
     }
 
   ]
