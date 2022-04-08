@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin: 0px;padding: 0px;border: 0px">
     <Header/>
     <!--    <div style="height: 20%;width:2000px;border: 1px solid #0c0c0c;"></div>-->
 
@@ -127,18 +127,19 @@
 
       <div class="j">
         <el-image
-          src="https://raw.githubusercontent.com/hellolvweibin/Typora/main/IMG_5494.JPG"
+          src="https://images.pexels.com/photos/247204/pexels-photo-247204.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           style="width: 370px;height: 246px"/>
       </div>
-      <div class="model" style="position: relative;margin-right: -30%">
+      <div class="model" style="position: relative;margin-right: -30%;box-sizing:border-box;">
         <div>
           <span
             style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">模特之家</span><br>
         </div>
         <div><br><br>
-        <span
-          style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic">来看看他们是怎么塑造时尚的!</span>
-        </div><br><br><br><br>
+          <span
+            style="color:black;font-family:Apple,serif;font-size: 20px;font-weight:bold;font-style: italic">来看看他们是怎么塑造时尚的!</span>
+        </div>
+        <br><br><br><br>
 
         <el-button @click="$router.replace({path:'/forum'})" class="button_ensure" icon="el-icon-wind-power"
                    style="color: white;">
@@ -148,17 +149,24 @@
       <br><br><br><br>
 
 
-
     </div>
 
     <div class="line2">
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
+    <div style="height: 350px"></div>
 
+    <div>
+      <span style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">Sign up now to receive our</span><br>
+      <span style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">weekly newsletter.</span><br>
 
+    </div>
+    <br><br><br>
+    <Footer/>
 
 
   </div>
+
 
 </template>
 
@@ -247,7 +255,10 @@ export default {
   max-width: 100%;
   display: block;
 }
-
+/*.model{*/
+/*  box-sizing:border-box;*/
+/*  max-width: 100%;*/
+/*}*/
 .f {
   position: absolute;
   z-index: 6;
@@ -294,7 +305,7 @@ export default {
 
 .j {
   position: absolute;
-  left:-186px;
+  left: -186px;
   top: 2700px;
   width: 100%;
   height: auto;

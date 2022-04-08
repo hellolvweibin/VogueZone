@@ -1,13 +1,12 @@
 <template>
-  <div class="footer" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;">
-    <el-container>
-      <div style="border-top:1px #1F1F1F solid;">
-        <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：Levi_Bee &nbsp;
-          <span>技术支持：</span>
-          <a href="" target="_blank" style="color:#999;">Levi_Bee</a>
-        </p>
-      </div>
-    </el-container>
+  <div class="footer">
+    <div style="border-top:1px #1F1F1F solid;">
+      <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：Levi_Bee👀 &nbsp;
+        <span>技术支持：</span>
+        <a href="" target="_blank" style="color:#999;">Levi_Bee😊</a>&nbsp;
+          <span style="color:#999; line-height:0">特别感谢：🐰🐰</span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -15,8 +14,6 @@
 export default {
   name: 'Footer'
 }
-
-
 </script>
 
 <style scoped>
@@ -41,7 +38,6 @@ span {
 
 .footer {
   background: #2b2e33;
-
 }
 
 .footer .alt {
@@ -61,7 +57,7 @@ span {
   line-height: 28px;
 }
 
-a {
+a{
   text-decoration: none;
 }
 
