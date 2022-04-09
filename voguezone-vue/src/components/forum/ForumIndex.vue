@@ -3,6 +3,7 @@
   <div>
 
     <Header/>
+
     <el-menu
       class="el-menu"
       router
@@ -27,12 +28,14 @@
     </div>
 
     <div>
-      <el-button  @click="$router.push({path:'/article/edit'})" style="color:#fcfbfb; position:relative;margin-right:-50%;font-weight: bold;background-color: #090505;font-family: Apple,serif">Create New Post</el-button>
+      <el-button  class="button_ensure" @click="$router.push({path:'/article/edit'})" style="color:#fcfbfb; position:relative;margin-right:-50%;font-weight: bold;font-family: Apple,serif">Create New Post</el-button>
     </div>
 
     <div>
 
     </div>
+
+    <div style="height: 1000px"></div>
 
 
 
@@ -69,5 +72,16 @@ export default {
   margin-top: 50px;
   margin-left: 200px;
   margin-right: 100px;
+}
+
+
+.button_ensure {
+  background: #020202;
+}
+
+.button_ensure:hover {
+  background: #2222db;
+
+
 }
 </style>
