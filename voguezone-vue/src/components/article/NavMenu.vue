@@ -42,7 +42,7 @@ export default {
         {name: '/hot', navItem: '热门板块'},
         {name: '/recommend', navItem: '推荐板块'},
         {name: '/idea', navItem: '灵感板块'},
-        {name: '/model', navItem: '模特专区'}
+        {name: '/models', navItem: '模特专区'}
       ]
     }
   }

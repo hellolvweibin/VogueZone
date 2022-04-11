@@ -21,10 +21,12 @@ export default new Router({
     // 下面都是固定的写法
     {
       path: '/',
+      name:AppIndex,
       component: AppIndex,
     },
     {
       path: '/register',
+      name:Register,
       component: Register,
     },
     {
@@ -55,7 +57,7 @@ export default new Router({
       component:ArticleIndex,
       children:[
         {
-          path:'/model',
+          path:'/models',
           name:'Model',
           component:Model
         },

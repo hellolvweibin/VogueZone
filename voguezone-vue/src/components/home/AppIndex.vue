@@ -8,7 +8,6 @@
     <br> <br><br>
 
 
-
     <div class="line2"><br><br><br><br><br><br><br><br><br><br></div>
 
     <br><br><br><br><br><br><br><br><br><br>
@@ -145,7 +144,7 @@
         </div>
         <br><br><br><br>
 
-        <el-button @click="$router.push({path:'/model'})" class="button_ensure" icon="el-icon-wind-power"
+        <el-button @click="$router.push({path:'/models'})" class="button_ensure" icon="el-icon-wind-power"
                    style="color: white;">
           即刻体验
         </el-button>
@@ -164,19 +163,16 @@
       <span style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">Sign up now to receive our</span><br>
       <span style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">weekly newsletter.</span><br>
 
-    </div><br><br><br>
+    </div>
+    <br><br><br>
     <el-button @click="backTop" class="button_ensure" icon="el-icon-upload2"
                style="color: white;">回到顶部
 
     </el-button>
 
 
-
     <br><br><br>
     <Footer/>
-
-
-
 
 
   </div>
@@ -195,17 +191,17 @@ export default {
   components: {Footer, Header, SearchBar},
   // vue的两个生命钩子，这里不多解释。
 // window对象，所有浏览器都支持window对象。它表示浏览器窗口，监听滚动事件
-  mounted () {
+  mounted() {
     window.addEventListener('scroll', this.scrollToTop)
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('scroll', this.scrollToTop)
   },
 
 
   methods: {
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
-    backTop () {
+    backTop() {
       const that = this
       let timer = setInterval(() => {
         let ispeed = Math.floor(-that.scrollTop / 5)
@@ -217,7 +213,7 @@ export default {
     },
 
     // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
-    scrollToTop () {
+    scrollToTop() {
       const that = this
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       that.scrollTop = scrollTop
@@ -228,9 +224,6 @@ export default {
       }
     }
   }
-
-
-
 
 
 }
@@ -310,6 +303,7 @@ export default {
   max-width: 100%;
   display: block;
 }
+
 /*.model{*/
 /*  box-sizing:border-box;*/
 /*  max-width: 100%;*/
