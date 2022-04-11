@@ -2,7 +2,7 @@
   <div class="body">
     <div></div>
     <div>
-      <SideMenu ></SideMenu>
+      <SideMenu></SideMenu>
     </div>
 
     <br>
@@ -14,8 +14,12 @@
                     :key="model.id">
           <p slot="content" style="font-size: 14px;margin-bottom: 6px;">{{ model.name }}</p>
           <p slot="content" style="font-size: 13px;margin-bottom: 6px">
-            <span>{{ model.gender }}</span> /
-            <span>国籍：{{ model.nationality }}</span> /<br>
+
+
+            <span>国籍：{{ model.nationality }}</span> <br>
+            <span v-if="model.gender===1">性别：{{status[0]}}</span>
+            <span v-else-if="model.gender===2">性别：{{status[1]}}</span>
+            <br>
             <span>简介：{{ model.introduction }}</span>
           </p>
           <p slot="content" style="width: 300px" class="abstract">{{ model.introduction }}</p>
@@ -59,11 +63,15 @@ import SideMenu from "@/components/article/SideMenu";
 export default {
   name: "Model",
   components: {SideMenu},
+
   data() {
     return {
       models: [],
       currentPage: 1,
-      pagesize: 17
+      pagesize: 17,
+      status:['男','女']
+
+
     }
   },
   mounted: function () {
@@ -89,6 +97,7 @@ export default {
       this.currentPage = currentPage
       console.log(this.currentPage)
     },
+
 
   }
 }
