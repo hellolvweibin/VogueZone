@@ -14,9 +14,7 @@
         {{ item.navItem }}
       </el-menu-item>
       <div style="float: right;margin-right: 100px;margin-top: 15px">
-        <search-bar
 
-        ></search-bar>
       </div>
 
     </el-menu>
@@ -45,6 +43,18 @@ export default {
         {name: '/models', navItem: '模特专区'}
       ]
     }
+  },
+  methods:{
+    searchResult () {
+      var _this = this
+      this.$axios
+        .get('/search?keywords=' + this.$refs.searchBar.keywords, {
+        }).then(resp => {
+        if (resp && resp.status === 200) {
+          _this.models = resp.data
+        }
+      })
+    },
   }
 }
 </script>

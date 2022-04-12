@@ -18,14 +18,7 @@
       <i class="el-icon-female"></i>
       <span slot="title" class="icon-model">Female</span>
     </el-menu-item>
-    <el-menu-item index="3">
-      <i class="el-icon-brush"></i>
-      <span slot="title" class="icon-model">职业</span>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-guide"></i>
-      <span slot="title" class="icon-model">生活</span>
-    </el-menu-item>
+
 
   </el-menu>
 </template>
@@ -35,12 +28,12 @@ export default {
   name: 'SideMenu',
   data(){
     return{
-      cid:''
+      gender:''
     }
   },
   methods: {
-    handleSelect(key,keyPath){
-      this.cid=key
+    handleSelect(key){
+      this.gender=key
       this.$emit('indexSelect')
     }
   }
@@ -53,7 +46,6 @@ export default {
 .categories {
   position: absolute;
   margin-left: 50% ;
-  display: block;
   left: -800px;
   top: 200px;
   width: 150px;

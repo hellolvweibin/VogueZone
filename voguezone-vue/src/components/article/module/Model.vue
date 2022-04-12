@@ -1,18 +1,28 @@
+
 <template>
-  <div class="body">
-    <div></div>
+ <div class="model-all" ref="modelAll">
+
     <div>
-      <SideMenu></SideMenu>
+      <el-aside style="width: 200px;margin-top: 20px">
+        <SideMenu @indexSelect="listByGender" ref="sideMenu"></SideMenu>
+      </el-aside>
+
     </div>
 
     <br>
-    <div class="model-all">
+
+   <div style="height: 20px"></div>
+    <div class="model-all" ref="modelAll">
+
+      <SearchBar @onSearch="searchResult" ref="searchBar" style="float: right;margin-right: 5%;margin-top: -2%"></SearchBar>
+      <div style="height: 70px"></div>
+
       <el-row style="height: 840px;position: relative;margin-left: 20%">
-        <!--        <search-bar @onSearch="searchResult" ref="searchBar"></search-bar>-->
+
         <el-tooltip effect="dark" placement="right"
                     v-for="model in models.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                     :key="model.id">
-          <p slot="content" style="font-size: 14px;margin-bottom: 6px;">{{ model.name }}</p>
+          <p slot="content" style="font-size: 14px;margin-bottom: 6px;">模特姓名：{{ model.name }}</p>
           <p slot="content" style="font-size: 13px;margin-bottom: 6px">
 
 
@@ -23,21 +33,22 @@
             <span>简介：{{ model.introduction }}</span>
           </p>
           <p slot="content" style="width: 300px" class="abstract">{{ model.introduction }}</p>
-          <el-card style="width: 160px;margin-bottom: 20px;height: 270px;float: left;margin-right: 15px" class="model"
+          <el-card style="width: 180px;margin-bottom: 20px;height: 290px;float: left;margin-right: 15px" class="model"
                    bodyStyle="padding:10px" shadow="hover">
-            <div class="cover" @click="editModel(model)">
+            <div class="cover"  style="margin-left: 12%">
               <img :src="model.image" alt="封面">
             </div>
             <div class="info">
-              <div class="title">
+              <div class="title" style="margin-left: 12%">
                 <a href="">{{ model.name }}</a>
               </div>
-              <i class="el-icon-delete" @click="deleteModel(model.id)"></i>
+              <i class="el-icon-star-off" style="float: right;"></i>
+
             </div>
-            <div class="author">{{ model.name }}</div>
+
           </el-card>
         </el-tooltip>
-        <!--        <edit-form @onSubmit="loadBooks()" ref="edit"></edit-form>-->
+
       </el-row>
 
       <el-row>
@@ -57,12 +68,14 @@
 </template>
 
 <script>
+
+
 import SearchBar from "@/components/common/SearchBar";
 import SideMenu from "@/components/article/SideMenu";
 
 export default {
   name: "Model",
-  components: {SideMenu},
+  components: {SearchBar, SideMenu},
 
   data() {
     return {
@@ -78,6 +91,8 @@ export default {
     this.loadModels()
 
   },
+
+
   methods: {
     loadModels() {
       let _this = this
@@ -90,13 +105,39 @@ export default {
     editModel() {
 
     },
-    deleteModel() {
+    searchResult () {
+      let _this = this
+      this.$axios
+        .get('/search?keywords=' + this.$refs.searchBar.keywords, {
+        }).then(resp => {
+        if (resp && resp.status === 200) {
+          _this.models = resp.data.result
+        }else{
 
+        }
+      })
+    },
+
+    listByGender () {
+      let _this = this
+      let gender = this.$refs.sideMenu.gender
+      let url = 'gender/' + gender + '/models'
+      this.$axios.get(url).then(resp => {
+        if (resp && resp.data.code === 200) {
+          _this.models = resp.data.result
+          // _this.$refs.modelALl.models = resp.data.result
+          // _this.$refs.modelALl.currentPage = 1
+        }
+      })
     },
     handleCurrentChange: function (currentPage) {
       this.currentPage = currentPage
       console.log(this.currentPage)
     },
+
+
+
+
 
 
   }
@@ -135,8 +176,8 @@ img {
 }
 
 .cover {
-  width: 115px;
-  height: 172px;
+  width: 140px;
+  height: 190px;
   margin-bottom: 7px;
   overflow: hidden;
   cursor: pointer;
@@ -149,4 +190,6 @@ a {
 a:link, a:visited, a:focus {
   color: #3377aa;
 }
+
+
 </style>

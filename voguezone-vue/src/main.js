@@ -7,17 +7,17 @@ import VueRouter from "vue-router";
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
+
+
 //导入element-ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-//导入vuetify
-// import Vuetify from "vuetify/lib";
-// Vuetify.config.silent = true
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 Vue.use(mavonEditor);
+
 // Vue.use(Vuetify)
 
 
@@ -30,6 +30,8 @@ Vue.config.productionTip = false
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+
+
 new Vue({
   el: '#app',
   router,

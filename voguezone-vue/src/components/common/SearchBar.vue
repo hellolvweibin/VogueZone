@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       keywords: '',
-      books: [],
+      models: [],
       cardLoading: []
     }
   },
