@@ -2,9 +2,10 @@
   <div>
     <Header/>
     <el-card shadow="never" style="font-weight: bold;font-family: Apple,serif;font-size: 20px">
-      <span>一切，从这里开始！</span>
-      <el-button  @click="uploadImg" style="color:#fcfbfb; float: right;margin-right:15px;font-weight: bold;background-color: #090505;font-family: Apple,serif">发表 </el-button>
-      <el-button  @click="saveArticles" ref="imgUpload" style="color:#fcfbfb; float: right;margin-right:15px;font-weight: bold;background-color: #090505;font-family: Apple,serif">保存 </el-button>
+      <span style="margin-left: 13%">   一切，从这里开始！</span>
+
+      <el-button  @click="saveArticles" ref="imgUpload" style="color:#fcfbfb; float: right;margin-right:-1%;font-weight: bold;background-color: #090505;font-family: Apple,serif">发表</el-button>
+      <el-button  @click="dialogVisible = true" style="color:#fcfbfb; float: right;margin-right:15px;font-weight: bold;background-color: #090505;font-family: Apple,serif">添加摘要/封面 </el-button>
     </el-card>
     <el-row>
       <el-input
@@ -20,6 +21,8 @@
         @save="saveArticles"
         fontSize="16px">
         <button type="button" class="op-icon el-icon-document" :title="'摘要/封面'" slot="left-toolbar-after"
+                @click="dialogVisible = true"></button>
+        <button type="button" class="op-icon el-icon-video-play" :title="'摘要/封面'" slot="left-toolbar-after"
                 @click="dialogVisible = true"></button>
       </mavon-editor>
       <el-dialog
@@ -50,10 +53,10 @@
 
 <script>
 import Header from "@/components/common/Header";
-
+import ImgUpload from "@/components/article/article/ImgUpload";
 export default {
   name: 'ArticleEditor',
-  components: {Header},
+  components: {Header,ImgUpload},
   data() {
     return {
       article: {},
@@ -74,14 +77,14 @@ export default {
         type: 'warning'
       }).then(() => {
           this.$axios
-            .post('/admin/content/article', {
+            .post('/admin/article', {
               id: this.article.id,
               articleTitle: this.article.articleTitle,
               articleContentMd: value,
               articleContentHtml: render,
               articleAbstract: this.article.articleAbstract,
               articleCover: this.article.articleCover,
-              articleDate: this.article.articleDate
+              articleCreatedTime: this.article.articleCreatedTime
             }).then(resp => {
             if (resp && resp.status === 200) {
               this.$message({
