@@ -3,7 +3,7 @@
 
   <el-card class="admin-header">
     <a href="/index" style="color: black">
-      <span style="font-size: 45px;font-weight: bold;position:absolute;left: 50px;top: 35px;font-family:Apple,serif;font-style: italic">ModelTalk.</span>
+      <span  @click="$router.push({path:'/index'})" style="font-size: 45px;font-weight: bold;position:absolute;left: 50px;top: 35px;font-family:Apple,serif;font-style: italic">ModelTalk.</span>
     </a>
     <el-row>
 

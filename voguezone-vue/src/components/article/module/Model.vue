@@ -4,7 +4,7 @@
 
     <div>
       <el-aside style="width: 200px;margin-top: 20px">
-        <SideMenu @indexSelect="listByGender" ref="sideMenu"></SideMenu>
+        <SideMenu @indexSelect="listByGender" ref="sideMenu" style=" float: left; margin-top: 2%;"></SideMenu>
       </el-aside>
 
     </div>

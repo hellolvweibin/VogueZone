@@ -33,6 +33,7 @@
 
     <div>
 
+
     </div>
 
     <div style="height: 1000px"></div>
@@ -44,8 +45,10 @@
 </template>
 
 <script>
+
 import SearchBar from "@/components/common/SearchBar";
 import Header from "@/components/common/Header";
+
 
 export default {
 

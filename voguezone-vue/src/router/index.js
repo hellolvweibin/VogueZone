@@ -11,7 +11,7 @@ import Recommend from "@/components/article/module/Recommend";
 import Idea from "@/components/article/module/Idea";
 import ArticleEditor from "@/components/article/article/ArticleEditor";
 import ForumIndex from "@/components/forum/ForumIndex";
-
+// import MyEditor from "@/components/wangEditor/MyEditor";
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +34,11 @@ export default new Router({
       name: 'Login',
       component: Login
     },
+    // {
+    //   path: '/myeditor',
+    //   name: 'MyEditor',
+    //   component: MyEditor
+    // },
     {
       path: '/index',
       name: 'AppIndex',
