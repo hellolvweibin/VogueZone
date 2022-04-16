@@ -12,6 +12,10 @@ import 'mavon-editor/dist/css/index.css'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import TEditor from "@/components/common/TEditor"
+Vue.component('TinymceEditor',TEditor)
+
+
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);

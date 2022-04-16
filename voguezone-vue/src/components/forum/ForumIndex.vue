@@ -11,7 +11,7 @@
       background-color="white"
       text-color="#222"
       active-text-color="black"
-      style="min-width: 1300px">
+      style="min-width: 1300px;margin-left: 8%">
 
       <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name"
                     style="font-size: 20px;margin-left: 20px;font-family: Apple,serif">
@@ -28,27 +28,45 @@
     </div>
 
     <div>
-      <el-button  class="button_ensure" @click="$router.push({path:'/article/edit'})" style="color:#fcfbfb; position:relative;margin-right:-50%;font-weight: bold;font-family: Apple,serif">Create New Post</el-button>
+      <el-button class="button_ensure" @click="$router.push({path:'/article/edit'})"
+                 style="color:#fcfbfb; position:relative;margin-right:-50%;font-weight: bold;font-family: Apple,serif">
+        Create New Post
+      </el-button>
     </div>
 
-    <div>
+    <div class="article-area" style="margin-top: 60px">
+      <el-row style="position: relative;margin-left: 18%;width: 50%">
+        <div v-for="article in articles" >
+          <el-card style="margin-bottom: 20px;float: left;margin-right: 15px" class="article"
+                   bodyStyle="padding:0px" shadow="hover">
+            <div class="cover" >
+              <img class="img" :src="article.articleCover" alt="封面" @click="toArticleDetail">
+            </div>
+            <br>
 
+            <div class="info">
+              <div class="title" style="margin-left: 12%;margin-top: 15px">
+                <span>{{ article.articleTitle }}</span>
+              </div>
 
+            </div>
+
+          </el-card>
+        </div>
+      </el-row>
     </div>
-
-    <div style="height: 1000px"></div>
-
-
 
 
   </div>
+
+
 </template>
 
 <script>
 
 import SearchBar from "@/components/common/SearchBar";
 import Header from "@/components/common/Header";
-
+// import EditorTest from "@/components/forum/EditorTest"
 
 export default {
 
@@ -62,8 +80,29 @@ export default {
         {name: '/article/categories', navItem: '分类'},
         {name: '/article/allarticle', navItem: '所有文章'},
         {name: '/article/myarticle', navItem: '我的文章'},
+      ],
+      articles: [],
+      currentPage: 1,
+      pagesize: 17,
+    }
+  },
+  //初始化页面完成后，
+  mounted: function () {
+    this.loadArticles()
 
-      ]
+  },
+  methods: {
+    loadArticles() {
+      let _this = this
+      this.$axios.get('/articles').then(resp => {
+        if (resp && resp.status === 200) {
+          _this.articles = resp.data.result
+
+        }
+      })
+    },
+    toArticleDetail(){
+
     }
   }
 
@@ -86,5 +125,26 @@ export default {
   background: #2222db;
 
 
+}
+
+.article {
+  border-width: 1px;
+  width: 580px;
+  min-height: 419px;
+
+
+
+}
+.img{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+.cover{
+
+  width: 580px;
+  height: 300px;
+  display: block;
 }
 </style>

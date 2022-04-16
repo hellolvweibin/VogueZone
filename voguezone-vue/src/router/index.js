@@ -9,7 +9,7 @@ import Model from "@/components/article/module/Model";
 import Hot from "@/components/article/module/Hot";
 import Recommend from "@/components/article/module/Recommend";
 import Idea from "@/components/article/module/Idea";
-import ArticleEditor from "@/components/article/article/ArticleEditor";
+import ArticleEditor from "@/components/article/ArticleEditor";
 import ForumIndex from "@/components/forum/ForumIndex";
 // import MyEditor from "@/components/wangEditor/MyEditor";
 Vue.use(Router)
@@ -35,9 +35,9 @@ export default new Router({
       component: Login
     },
     // {
-    //   path: '/myeditor',
-    //   name: 'MyEditor',
-    //   component: MyEditor
+    //   path: '/editor',
+    //   name: 'Editor',
+    //   component: Editor
     // },
     {
       path: '/index',
