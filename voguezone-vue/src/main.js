@@ -7,6 +7,8 @@ import VueRouter from "vue-router";
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
+import iView from "iview";
+// import 'iview/dist/styles/iview.css'
 
 //导入element-ui
 import ElementUI from 'element-ui';
@@ -20,6 +22,7 @@ Vue.component('TinymceEditor',TEditor)
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 Vue.use(mavonEditor);
+Vue.use(iView)
 
 
 

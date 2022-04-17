@@ -22,37 +22,53 @@
     </el-menu>
     <br><br>
 
-    <div>
+    <div style="position: center">
       <span style="font-family:Apple,serif;font-size: 80px;font-weight:bold;font-style: italic;margin-top: 100px">EXPLORE OUR FORUM</span><br>
       <span style="font-family:Apple,serif;font-size: 30px;font-weight:bold;font-style: italic;margin-top: 40px">加入我们，展示你的美！</span><br><br><br><br><br><br>
     </div>
-
-    <div>
+    <div style="position: center">
       <el-button class="button_ensure" @click="$router.push({path:'/article/edit'})"
-                 style="color:#fcfbfb; position:relative;margin-right:-50%;font-weight: bold;font-family: Apple,serif">
+                 style="color:#fcfbfb; font-weight: bold;font-family: Apple,serif">
         Create New Post
       </el-button>
+
     </div>
 
-    <div class="article-area" style="margin-top: 60px">
-      <el-row style="position: relative;margin-left: 18%;width: 50%">
-        <div v-for="article in articles" >
-          <el-card style="margin-bottom: 20px;float: left;margin-right: 15px" class="article"
-                   bodyStyle="padding:0px" shadow="hover">
-            <div class="cover" >
-              <img class="img" :src="article.articleCover" alt="封面" @click="toArticleDetail">
-            </div>
-            <br>
 
-            <div class="info">
-              <div class="title" style="margin-left: 12%;margin-top: 15px">
-                <span>{{ article.articleTitle }}</span>
+    <div class="article-area" style="margin-top: 60px;position: center">
+
+      <el-row style="position: center">
+        <el-col style="position: center">
+          <div v-for="article in articles" style="position: relative;margin-left: 18%">
+            <el-card style="margin-bottom: 20px;float: left;margin-right: 15px" class="article"
+                     bodyStyle="padding:0px" shadow="hover">
+              <div class="cover" >
+                <img @click="toArticleDetail(article.id)" class="img" :src="article.articleCover" alt="封面"  >
+              </div><br><br><br>
+
+
+              <div class="info" style="text-align:center;margin-top: 15px;font-family: Apple,serif;margin-left: 5%;">
+                <div class="title" style="float: left;margin-left: 5%;font-size: 20px;font-weight: bold">
+                  <router-link class="article-link" :to="{path:'/forum/article',query:{id: article.id}}" style="color: #130d0d"><span><strong>{{article.articleTitle}}</strong></span></router-link>
+
+                </div><br><br>
+
+                <div class="interaction" style="float:left;margin-left: 5%">
+                  <Icon type="md-thumbs-up" size="20" />&nbsp;&nbsp;
+                  <Icon  type="ios-text" size="20"/>
+                </div><br><br>
+
+
+                <div class="abstract" style="font-family: Apple,serif;font-weight: bold;font-size: 14px;float: left;margin-left: 5%;text-align: left;margin-right: 5%">
+                  <span>{{article.articleAbstract}}</span>
+                </div>
+
               </div>
 
-            </div>
+            </el-card>
+          </div>
+        </el-col>
 
-          </el-card>
-        </div>
       </el-row>
     </div>
 
@@ -101,9 +117,13 @@ export default {
         }
       })
     },
-    toArticleDetail(){
+    toArticleDetail(id){
+      let _this = this
+      //获取当前博客的id 传到详情页面
+      this.$router.push({path:'/forum/article',query:{id}})
 
     }
+
   }
 
 }
@@ -128,8 +148,10 @@ export default {
 }
 
 .article {
+
   border-width: 1px;
-  width: 580px;
+  width: 540px;
+  height: 520px;
   min-height: 419px;
 
 
@@ -137,8 +159,9 @@ export default {
 }
 .img{
   width: 100%;
-  height: 100%;
-  object-fit:cover;
+  height: 120%;
+  object-fit: cover;
+
 }
 
 .cover{

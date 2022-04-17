@@ -11,6 +11,7 @@ import Recommend from "@/components/article/module/Recommend";
 import Idea from "@/components/article/module/Idea";
 import ArticleEditor from "@/components/article/ArticleEditor";
 import ForumIndex from "@/components/forum/ForumIndex";
+import ArticleDetails from "@/components/article/ArticleDetails";
 // import MyEditor from "@/components/wangEditor/MyEditor";
 Vue.use(Router)
 
@@ -48,7 +49,13 @@ export default new Router({
     {
       path:'/forum',
       name:'ForumIndex',
-      component:ForumIndex
+      component:ForumIndex,
+
+    },
+    {
+      path:'/forum/article',
+      name:'ArticleDetails',
+      component:ArticleDetails
     },
     {
       path:'/article/edit',
