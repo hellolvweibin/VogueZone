@@ -30,5 +30,6 @@
     <orderEntry type="library" name="iview" level="application" />
     <orderEntry type="library" name="iview" level="application" />
     <orderEntry type="library" name="@wangeditor/editor" level="application" />
+    <orderEntry type="library" name="iview" level="application" />
   </component>
 </module>

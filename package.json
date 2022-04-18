@@ -7,7 +7,9 @@
     "@wangeditor/editor-for-vue": "^1.0.0",
     "iview": "^3.5.4",
     "tinymce": "^5.1.0",
+    "view-design": "^4.7.0",
     "wangeditor": "^4.7.13"
+
   },
   "devDependencies": {
     "deepmerge": "^4.2.2",
