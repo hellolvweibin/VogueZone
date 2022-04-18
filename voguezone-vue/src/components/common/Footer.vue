@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer" style="flex: 0 0 auto">
     <div style="border-top:1px #1F1F1F solid;">
       <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：Levi_Bee👀 &nbsp;
         <span>技术支持：</span>
@@ -38,6 +38,7 @@ span {
 
 .footer {
   background: #2b2e33;
+  flex: 0;
 }
 
 .footer .alt {

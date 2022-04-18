@@ -4,7 +4,7 @@
     <el-card shadow="never" style="font-weight: bold;font-family: Apple,serif;font-size: 20px">
       <span style="margin-left: 13%">   一切，从这里开始！</span>
 
-      <el-button @click="saveArticles" ref="imgUpload"
+      <el-button @click="saveArticles()"
                  style="color:#fcfbfb; float: right;margin-right:-1%;font-weight: bold;background-color: #090505;font-family: Apple,serif">
         发表
       </el-button>
@@ -32,7 +32,6 @@
             div: ['style', 'height', 'width', 'align'],
           },
         }"
-
       >
         <button type="button" class="op-icon el-icon-document" :title="'摘要/封面'" slot="left-toolbar-after"
                 @click="dialogVisible = true"></button>
@@ -99,19 +98,27 @@
 <!--      </span>-->
 <!--      </el-dialog>-->
     </el-row>
+    <br><br>
+
+    <div><Footer/></div>
+
+
   </div>
 </template>
 
 <script>
 import Header from "@/components/common/Header";
 import ImgUpload from "@/components/article/ImgUpload";
+import Footer from "@/components/common/Footer";
 
 export default {
   name: 'ArticleEditor',
-  components: {Header, ImgUpload},
+  components: {Header, ImgUpload,Footer},
   data() {
     return {
-      article: {},
+      article: {
+
+      },
       dialogFormVisible: false,	// 用于控制表单对话框的开启和关闭
       dialogVisible: false,// 用于控制错误提示对话框的开启和关闭
       form: {		// 表单对话框内表单的数据
@@ -127,7 +134,7 @@ export default {
     }
   },
   methods: {
-    saveArticles(value, render) {
+    saveArticles(render) {
       // value 是 md，render 是 html
       this.$confirm('是否保存并发布文章?', '提示', {
         confirmButtonText: '确定',
@@ -135,20 +142,22 @@ export default {
         type: 'warning'
       }).then(() => {
           this.$axios
-            .post('/admin/article', {
-              id: this.article.id,
+            .post('/admin/content/article', {
+              id: null,
               articleTitle: this.article.articleTitle,
               articleContentHtml: render,
-              articleContentMd: value,
+              articleContentMd:  this.article.articleContentMd,
               status: 1,
               articleAbstract: this.article.articleAbstract,
               articleCover: this.article.articleCover,
-              articleCreatedTime: this.article.articleCreatedTime
+              articleCreatedTime: null,
+              articleUpdatedTime:null,
+
             }).then(resp => {
             if (resp && resp.status === 200) {
               this.$message({
                 type: 'info',
-                message: '已保存成功'
+                message: '发表成功'
               })
             }
           })
@@ -204,6 +213,25 @@ export default {
       this.dialogFormVisible = false;
     }
   },
+  //获取当前时间
+  getDateTime() {
+    let _this = this;
+    let yy = new Date().getFullYear();
+    let mm = new Date().getMonth() + 1;
+    let dd = new Date().getDate();
+    let hh = new Date().getHours();
+    let mf =
+      new Date().getMinutes() < 10
+        ? "0" + new Date().getMinutes()
+        : new Date().getMinutes();
+    let ss =
+      new Date().getSeconds() < 10
+        ? "0" + new Date().getSeconds()
+        : new Date().getSeconds();
+    let gettime = yy + "-" + mm + "-" + dd + " " + hh + ":" + mf + ":" + ss;
+    return gettime;
+  },
+
 
 
 }

@@ -71,6 +71,7 @@
 
       </el-row>
     </div>
+    <div ><Footer/></div>
 
 
   </div>
@@ -82,13 +83,14 @@
 
 import SearchBar from "@/components/common/SearchBar";
 import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 // import EditorTest from "@/components/forum/EditorTest"
 
 export default {
 
   name: "ForumIndex",
   components: {
-    Header, SearchBar
+    Header, SearchBar,Footer
   },
   data() {
     return {

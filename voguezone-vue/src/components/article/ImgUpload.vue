@@ -9,6 +9,7 @@
     :on-success="handleSuccess"
     multiple
     :limit="1"
+    list-type="picture"
     :on-exceed="handleExceed"
     :file-list="fileList">
     <el-button size="small" style="color: white;background-color: #090505;font-family: Apple,serif" >点击上传</el-button>
