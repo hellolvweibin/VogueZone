@@ -1,18 +1,25 @@
 <template>
-  <div class="footer" style="flex: 0 0 auto">
-    <div style="border-top:1px #1F1F1F solid;">
-      <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：Levi_Bee👀 &nbsp;
-        <span>技术支持：</span>
-        <a href="" target="_blank" style="color:#999;">Levi_Bee😊</a>&nbsp;
+  <footer>
+    <div class="footer" style="flex: 0 0 auto">
+      <div style="border-top:1px #1F1F1F solid;">
+        <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：Levi_Bee👀 &nbsp;
+          <span>技术支持：</span>
+          <a href="" target="_blank" style="color:#999;">Levi_Bee😊</a>&nbsp;
           <span style="color:#999; line-height:0">特别感谢：🐰🐰</span>
-      </p>
+        </p>
+      </div>
+      <BackTop/>
+
     </div>
-  </div>
+  </footer>
+
 </template>
 
 <script>
+import BackTop from "@/components/common/BackTop"
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  components:{BackTop}
 }
 </script>
 
@@ -39,6 +46,7 @@ span {
 .footer {
   background: #2b2e33;
   flex: 0;
+  margin-top: 120px;
 }
 
 .footer .alt {

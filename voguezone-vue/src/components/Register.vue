@@ -1,55 +1,74 @@
 <template>
-  <body id="paper">
+  <body id="paper" style="font-family: Apple,serif;font-size: 16px">
+<!--  这里记得写上ref="loginForm"，绑定数据元素，不然无法重置表单-->
   <el-form :model="loginForm" :rules="rules" class="login-container" label-position="left"
-           label-width="0px" v-loading="loading">
+           label-width="0px" v-loading="loading" ref="loginForm">
     <h3 class="login_title">用户注册</h3>
     <el-form-item prop="username">
       <el-input type="text" v-model="loginForm.username"
-                auto-complete="off" placeholder="账号"></el-input>
+                auto-complete="off" placeholder="用户名"></el-input>
     </el-form-item>
     <el-form-item prop="password">
       <el-input type="password" v-model="loginForm.password"
-                auto-complete="off" placeholder="密码"></el-input>
+                auto-complete="off" placeholder="密码" show-password></el-input>
     </el-form-item>
-    <el-form-item>
-      <el-input type="text" v-model="loginForm.name"
-                auto-complete="off" placeholder="真实姓名"></el-input>
+    <el-form-item prop="check_password">
+      <el-input type="password" v-model="loginForm.check_password"
+                auto-complete="off" placeholder="确认密码" show-password></el-input>
     </el-form-item>
-    <el-form-item>
-      <el-input type="text" v-model="loginForm.phone"
-                auto-complete="off" placeholder="电话号码"></el-input>
-    </el-form-item>
+
 
     <el-form-item>
       <el-input type="text" v-model="loginForm.email"
                 auto-complete="off" placeholder="E-Mail"></el-input>
     </el-form-item>
-    <el-form-item>
-      您的性别：
-      <el-radio v-model="loginForm.gender" label="1">男</el-radio>
-      <el-radio v-model="loginForm.gender" label="2">女</el-radio>
-    </el-form-item>
+
     <el-form-item style="width: 100%">
-      <el-button type="primary" style="width: 40%;background: #505458;border: none" v-on:click="register">注册</el-button>
+      <el-button type="primary" style="width: 40%;background: #505458;border: none" @click="submitForm('loginForm')">注册</el-button>
+      <el-button type="primary" style="width: 40%;background: #505458;border: none" @click="resetForm('loginForm')">重置</el-button>
     </el-form-item>
   </el-form>
   </body>
 </template>
 <script>
 export default{
+
   data () {
+
+    var validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'));
+      } else {
+        if (this.loginForm.check_password !== '') {
+          this.$refs.loginForm.validateField('check_password');
+        }
+        callback();
+      }
+    };
+    let validatePass2 = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'));
+      } else if (value !== this.loginForm.password) {
+        callback(new Error('两次输入密码不一致!'));
+      } else {
+        callback();
+      }
+    };
+
     return {
       rules: {
         username: [{required: true, message: '用户名不能为空', trigger: 'blur'}],
-        password: [{required: true, message: '密码不能为空', trigger: 'blur'}]
+        password: [{ validator: validatePass,trigger: 'blur'}],
+        check_password: [{validator: validatePass2,trigger: 'blur'}],
+        email: [{required: true, message: '邮箱不能为空', trigger: 'blur'}]
       },
       checked: true,
       loginForm: {
         username: '',
         password: '',
+        check_password:'',
         name: '',
-        gender:'',
-        phone: '',
+
         email: ''
       },
 
@@ -57,14 +76,18 @@ export default{
     }
   },
   methods: {
-    register () {
+    //重置输入框
+    resetForm(forName) {
+      this.$refs[forName].resetFields();
+    },
+    //实现注册功能
+    submitForm () {
       var _this = this
       this.$axios
         .post('/register', {
           username: this.loginForm.username,
           password: this.loginForm.password,
           name: this.loginForm.name,
-          phone: this.loginForm.phone,
           email: this.loginForm.email
         })
         .then(resp => {
@@ -81,16 +104,18 @@ export default{
         })
         .catch(failResponse => {})
     }
+
   }
 }
 </script>
 <style>
 #paper {
-  background: url("../assets/image/bg/bg4.jpg") no-repeat center;
+  background: url("../assets/image/bg/bg3.jpg") no-repeat center;
   height: 100%;
   width: 100%;
   background-size: cover;
   position: fixed;
+  margin-bottom: 0px;
 }
 body{
   margin: -5px 0px;

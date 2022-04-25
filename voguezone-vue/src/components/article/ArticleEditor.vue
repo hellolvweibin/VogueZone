@@ -23,7 +23,7 @@
       <mavon-editor
         v-model="article.articleContentMd"
         style="height: 100%;"
-        ref=md
+        ref="md"
         @save="saveArticles"
         fontSize="16px"
         :xssOptions="{
@@ -124,7 +124,7 @@ export default {
       form: {		// 表单对话框内表单的数据
         link: '',
         region: ''
-      }
+      },
 
     }
   },
@@ -134,7 +134,7 @@ export default {
     }
   },
   methods: {
-    saveArticles(render) {
+    saveArticles() {
       // value 是 md，render 是 html
       this.$confirm('是否保存并发布文章?', '提示', {
         confirmButtonText: '确定',
@@ -145,26 +145,25 @@ export default {
             .post('/admin/content/article', {
               id: null,
               articleTitle: this.article.articleTitle,
-              articleContentHtml: render,
-              articleContentMd:  this.article.articleContentMd,
+              articleContentHtml:this.$refs.md.d_render, //获取html文本
+              articleContentMd:  this.$refs.md.d_value, //获取text内容
               status: 1,
               articleAbstract: this.article.articleAbstract,
               articleCover: this.article.articleCover,
-              articleCreatedTime: null,
-              articleUpdatedTime:null,
 
             }).then(resp => {
             if (resp && resp.status === 200) {
               this.$message({
-                type: 'info',
+                type: 'success',
                 message: '发表成功'
               })
             }
+
           })
         }
       ).catch(() => {
         this.$message({
-          type: 'info',
+          type: 'warning',
           message: '已取消发布'
         })
       })
@@ -213,27 +212,13 @@ export default {
       this.dialogFormVisible = false;
     }
   },
-  //获取当前时间
-  getDateTime() {
-    let _this = this;
-    let yy = new Date().getFullYear();
-    let mm = new Date().getMonth() + 1;
-    let dd = new Date().getDate();
-    let hh = new Date().getHours();
-    let mf =
-      new Date().getMinutes() < 10
-        ? "0" + new Date().getMinutes()
-        : new Date().getMinutes();
-    let ss =
-      new Date().getSeconds() < 10
-        ? "0" + new Date().getSeconds()
-        : new Date().getSeconds();
-    let gettime = yy + "-" + mm + "-" + dd + " " + hh + ":" + mf + ":" + ss;
-    return gettime;
-  },
 
 
 
 }
 </script>
 
+<style scoped>
+
+@import "../../style/markdown.css";
+</style>

@@ -8,7 +8,10 @@
 
 package com.lv.config;
 
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,11 +21,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @MapperScan("com.lv.mapper")
 public class MybatisPlusConfig {
+
     @Bean
-    public PaginationInterceptor paginationInterceptor() {
-        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-        return paginationInterceptor;
+    public MybatisPlusInterceptor mybatisPlusInterceptor(){
+        //1.定义MP的拦截器
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        //2.添加具体的拦截器
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        return interceptor;
     }
+
+
 }
 
 

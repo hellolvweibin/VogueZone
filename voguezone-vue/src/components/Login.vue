@@ -1,8 +1,8 @@
 <template>
-  <body id="paper">
+  <body id="paper" style="font-family: Apple,serif">
   <el-form :model="loginForm" :rules="rules" class="login-container" label-position="left"
            label-width="0px" v-loading="loading">
-    <h3 class="login_title">系统登录</h3>
+    <h3 class="login_title" style="font-size: 20px"><strong>系统登录</strong></h3>
     <el-form-item prop="username">
       <el-input type="text" v-model="loginForm.username"
                 auto-complete="off" placeholder="账号"></el-input>
@@ -11,8 +11,8 @@
       <el-input type="password" v-model="loginForm.password"
                 auto-complete="off" placeholder="密码"></el-input>
     </el-form-item>
-    <el-checkbox class="login_remember" v-model="checked"
-                 label-position="left"><span style="color: #505458">记住密码</span></el-checkbox>
+<!--    <el-checkbox class="login_remember" v-model="checked"-->
+<!--                 label-position="left"><span style="color: #505458">记住密码</span></el-checkbox>-->
     <el-form-item style="width: 100%">
       <el-button type="primary" style="width: 40%;background: #505458;border: none" v-on:click="login">登录</el-button>
       <router-link to="register"><el-button type="primary" style="width: 40%;background: #505458;border: none">注册</el-button></router-link>
@@ -68,7 +68,7 @@ export default{
 <style>
 #paper {
   background: url("../assets/image/bg/bg4.jpg") no-repeat center;
-  height: 100%;
+  height: 120%;
   width: 100%;
   background-size: cover;
   position: fixed;

@@ -1,6 +1,5 @@
-
 <template>
- <div class="model-all" ref="modelAll">
+  <div class="model-all" ref="modelAll">
 
     <div>
       <el-aside style="width: 200px;margin-top: 20px">
@@ -11,10 +10,11 @@
 
     <br>
 
-   <div style="height: 20px"></div>
+    <div style="height: 20px"></div>
     <div class="model-all" ref="modelAll">
 
-      <SearchBar @onSearch="searchResult" ref="searchBar" style="float: right;margin-right: 5%;margin-top: -2%"></SearchBar>
+      <SearchBar @onSearch="searchResult" ref="searchBar"
+                 style="float: right;margin-right: 5%;margin-top: -2%"></SearchBar>
       <div style="height: 70px"></div>
 
       <el-row style="height: 840px;position: relative;margin-left: 20%">
@@ -27,15 +27,15 @@
 
 
             <span>国籍：{{ model.nationality }}</span> <br>
-            <span v-if="model.gender===1">性别：{{status[0]}}</span>
-            <span v-else-if="model.gender===2">性别：{{status[1]}}</span>
+            <span v-if="model.gender===1">性别：{{ status[0] }}</span>
+            <span v-else-if="model.gender===2">性别：{{ status[1] }}</span>
             <br>
             <span>简介：{{ model.introduction }}</span>
           </p>
           <p slot="content" style="width: 300px" class="abstract">{{ model.introduction }}</p>
           <el-card style="width: 180px;margin-bottom: 20px;height: 290px;float: left;margin-right: 15px" class="model"
                    bodyStyle="padding:10px" shadow="hover">
-            <div class="cover"  style="margin-left: 12%">
+            <div class="cover" style="margin-left: 12%">
               <img :src="model.image" alt="封面">
             </div>
             <div class="info">
@@ -82,7 +82,7 @@ export default {
       models: [],
       currentPage: 1,
       pagesize: 17,
-      status:['男','女']
+      status: ['男', '女']
 
 
     }
@@ -105,20 +105,23 @@ export default {
     editModel() {
 
     },
-    searchResult () {
+    searchResult() {
       let _this = this
       this.$axios
-        .get('/search?keywords=' + this.$refs.searchBar.keywords, {
-        }).then(resp => {
-        if (resp && resp.status === 200) {
+        .get('/search?keywords=' + this.$refs.searchBar.keywords, {}).then(resp => {
+        if (resp && resp.status === 200 && resp.data.result.length !== 0) {
           _this.models = resp.data.result
-        }else{
+        } else {
+          _this.$notify.error({
+            title: '出错啦',
+            message: '找不到您想要的信息，再试一下吧🧐',
+          });
 
         }
       })
     },
 
-    listByGender () {
+    listByGender() {
       let _this = this
       let gender = this.$refs.sideMenu.gender
       let url = 'gender/' + gender + '/models'
@@ -134,10 +137,6 @@ export default {
       this.currentPage = currentPage
       console.log(this.currentPage)
     },
-
-
-
-
 
 
   }

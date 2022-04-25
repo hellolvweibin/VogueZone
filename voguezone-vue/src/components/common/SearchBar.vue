@@ -20,6 +20,7 @@ export default {
     return {
       keywords: '',
       models: [],
+      articles:[],
       cardLoading: []
     }
   },

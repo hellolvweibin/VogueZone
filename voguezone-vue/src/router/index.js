@@ -91,8 +91,8 @@ export default new Router({
       ]
     },
     {
-      path:'*',
-      redirect:'/index'
+      path: '*',
+      component: () => import('../components/error/Error404')
     }
 
   ]
