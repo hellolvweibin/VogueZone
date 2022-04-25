@@ -1,13 +1,21 @@
 <template>
-  <comment :comments="commentData"></comment>
+  <comment :comments="CommentData"></comment>
 </template>
 
 <script>
 import * as CommentData from '../../style/js/mockdata'
-import comment from '../'
+import comment from '../comment/CommentForm'
 export default {
   name: "CommentIndex",
-  components:{comment}
+  components:{comment},
+  data(){
+    return {
+      CommentData:[],
+    }
+  },
+  created() {
+    this.CommentData = CommentData.comment.data
+  }
 }
 </script>
 

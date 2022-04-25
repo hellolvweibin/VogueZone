@@ -7,6 +7,24 @@
     </a>
     <el-row>
 
+      <div class="avatar">
+
+<!--        <div class="demo-basic&#45;&#45;circle" style="float: right;">-->
+<!--          <div class="user"><el-avatar size="40" src="http://ww4.sinaimg.cn/bmiddle/006DLFVFgy1ft0j2pddjuj30v90uvagf.jpg" ></el-avatar>-->
+
+<!--          </div>-->
+<!--        </div>-->
+        <el-dropdown v-if="!showName" @command="LoginOrResister" class="icon" style="font-size: 20px;float: right;margin-right:20px">
+        <span class="el-dropdown-link">
+            <i class="el-icon-user-solid" style="color: #020202"></i>
+            </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="login">登录</el-dropdown-item>
+            <el-dropdown-item command="register">注册</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+
       <el-dropdown @command="handleCommand" class="icon" style="font-size: 20px;float: right;margin-right:20px">
         <span class="el-dropdown-link">
             <i class="el-icon-more" style="color: #303090"></i>
@@ -19,15 +37,8 @@
       </el-dropdown>
       <!--      </el-button>-->
 
-      <el-dropdown @command="LoginOrResister" class="icon" style="font-size: 20px;float: right;margin-right:20px">
-        <span class="el-dropdown-link">
-            <i class="el-icon-user-solid" style="color: #020202"></i>
-            </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="login">登录</el-dropdown-item>
-          <el-dropdown-item command="register">注册</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+
+
 
 
       <el-dropdown class="icon" style="font-size: 20px;float: right;margin-right:20px">
@@ -39,7 +50,7 @@
           <el-dropdown-item command="b">管理员消息</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <el-button  @click="toWriting" style="color:#fcfbfb; float: right;margin-right:15px;font-weight: bold;background-color: #090505;font-family: Apple,serif">创作中心 </el-button>
+<!--      <el-button  @click="toWriting" style="color:#fcfbfb; float: right;margin-right:15px;font-weight: bold;background-color: #090505;font-family: Apple,serif">创作中心 </el-button>-->
     </el-row>
 
   </el-card>
@@ -49,6 +60,12 @@
 <script>
 export default {
   name: "Header",
+  data(){
+    return{
+      showName:false,
+    }
+
+  },
   methods: {
     LoginOrResister(command) {
       if(command==="login"){
@@ -69,6 +86,7 @@ export default {
 </script>
 
 <style scoped>
+
 .admin-header {
   height: 80px;
   opacity: 0.85;

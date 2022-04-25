@@ -13,6 +13,7 @@ import ArticleEditor from "@/components/article/ArticleEditor";
 import ForumIndex from "@/components/forum/ForumIndex";
 import ArticleDetails from "@/components/article/ArticleDetails";
 // import MyEditor from "@/components/wangEditor/MyEditor";
+import CommentIndex from "@/components/comment/CommentIndex"
 Vue.use(Router)
 
 export default new Router({
@@ -20,26 +21,29 @@ export default new Router({
   mode: 'history',
   routes: [
     // 下面都是固定的写法
+    //首页
     {
       path: '/',
       name:AppIndex,
       component: AppIndex,
     },
+    //注册
     {
       path: '/register',
       name:Register,
       component: Register,
     },
+    //登录
     {
       path: '/login',
       name: 'Login',
       component: Login
     },
-    // {
-    //   path: '/editor',
-    //   name: 'Editor',
-    //   component: Editor
-    // },
+    {
+      path: '/comment',
+      name: 'CommentIndex',
+      component: CommentIndex
+    },
     {
       path: '/index',
       name: 'AppIndex',
@@ -50,6 +54,17 @@ export default new Router({
       path:'/forum',
       name:'ForumIndex',
       component:ForumIndex,
+
+    },
+    {
+      path:'/user',
+      name:'UserIndex',
+      component:()=> import('@/components/user/UserIndex'),
+      //路由元信息
+      meta:{
+        title:'用户页面'
+
+      }
 
     },
     {
@@ -90,6 +105,7 @@ export default new Router({
         },
       ]
     },
+    //访问失败重定向位置
     {
       path: '*',
       component: () => import('../components/error/Error404')
