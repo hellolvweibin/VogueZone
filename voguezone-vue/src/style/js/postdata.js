@@ -1,5 +1,5 @@
 //模拟用户数据
-const userData = {
+const postData = {
   status: "成功",
   code: 200,
   result: [
@@ -19,4 +19,4 @@ const userData = {
   ]
 };
 
-export {userData}
+export {postData}

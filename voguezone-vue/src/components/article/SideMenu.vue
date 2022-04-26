@@ -3,7 +3,7 @@
 <template>
   <el-menu
     class="categories"
-    default-active="0"
+    default-active="$route.path"
     @select="handleSelect"
     active-text-color="black">
     <el-menu-item index="0">

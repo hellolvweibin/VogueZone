@@ -64,7 +64,57 @@ export default new Router({
       meta:{
         title:'用户页面'
 
-      }
+      },
+      children:[
+        {
+          path:'/user/mypost',
+          name:'UserPost',
+          component:()=> import('@/components/user/UserPost'),
+        },
+        {
+          path:'/user/myalbum',
+          name:'UserAlbum',
+          component:()=> import('@/components/user/UserAlbum'),
+        },
+        {
+          path:'/user/mylike',
+          name:'UserLike',
+          component:()=> import('@/components/user/UserLike'),
+        },
+        {
+          path:'/user/mycollect',
+          name:'UserCollect',
+          component:()=> import('@/components/user/UserCollect'),
+        },
+
+      ]
+
+
+    },
+    //用户中心
+    {
+      path:'/user/settings',
+      name:'UserProfile',
+      component:()=> import('@/components/user/UserSettings'),
+      children:[
+        {
+          path:'/user/settings/profiles',
+          name:'UserProfiles',
+          component:()=> import('@/components/user/settings/UserProfiles'),
+        },
+        {
+          path:'/user/settings/auth',
+          name:'UserAuth',
+          component:()=> import('@/components/user/settings/UserAuth'),
+        },
+        {
+          path:'/user/settings/postmanage',
+          name:'UserPostManagement',
+          component:()=> import('@/components/user/settings/UserPostManagement'),
+        },
+
+
+      ]
 
     },
     {
