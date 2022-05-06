@@ -12,7 +12,7 @@
       <el-card class="el-card" v-for="user in users " :key="user.id">
 
         <div class="center">
-          <el-button @click="$router.push({path:'/user/settings'})" class="button_ensure"
+          <el-button @click="$router.push({path:'/user/settings/profiles'})" class="button_ensure"
                      icon="el-icon-magic-stick"
                      style="color: white;float: right">
             编辑个人资料
@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import * as userData from '../../style/js/userdata'
+import * as userData from '@/style/js/userdata'
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 
