@@ -1,6 +1,6 @@
 <!--用户基本信息-->
 <template>
-  <div class="main" >
+  <div class="main">
     <div class="right">
 
 
@@ -9,11 +9,11 @@
       style="position: relative;margin-left:10px;font-size: 20px;font-weight: bold;font-family: Apple,serif;"><strong>个人资料</strong></span><br>
 
     <el-divider></el-divider>
-    <div class="userForm" >
+    <div class="userForm">
 
 
       <div style="margin: 20px 0;"></div>
-      <el-form v-for="user in users" :key="user.id" :label-position="left" label-width="auto" >
+      <el-form v-for="user in users" :key="user.id" :label-position="left" label-width="auto">
         <el-form-item label="昵称:">
           <el-col :span="8">
             <el-input v-model="user.alias" maxlength="10" show-word-limit placeholder=""></el-input>
@@ -76,7 +76,7 @@
 
     <div style="margin-top: 7rem">
 
-      <el-button @click="$router.push({path:'/user/settings/profiles'})" class="button_ensure"
+      <el-button @click="saveProfiles" class="button_ensure"
 
                  style="color: white;position: center;margin-top: 100px;float: left;margin-left: -8.5rem">
         保存修改
@@ -140,6 +140,40 @@ export default {
         this.$message.error('上传头像图片大小不能超过 2MB!');
       }
       return isJPG && isLt2M;
+    },
+    //保存信息
+    saveProfiles(){
+
+      this.$confirm('是否保存修改', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+          this.$axios
+            .post('/admin/content/article', {
+              // id:null,
+              alias:this.user.alias,
+              bio:this.user.bio,
+              avatar:this.user.avatar,
+
+
+            }).then(resp => {
+            if (resp && resp.status === 200) {
+              this.$message({
+                type: 'success',
+                message: '修改成功'
+              })
+            }
+
+          })
+        }
+      ).catch(() => {
+        this.$message({
+          type: 'warning',
+          message: '已取消修改'
+        })
+      })
+
     },
 
 

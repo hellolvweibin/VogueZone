@@ -1,5 +1,6 @@
 <template>
   <body id="paper" style="font-family: Apple,serif;font-size: 16px">
+  <div style="height: 40px"></div>
 <!--  这里记得写上ref="loginForm"，绑定数据元素，不然无法重置表单-->
   <el-form :model="loginForm" :rules="rules" class="login-container" label-position="left"
            label-width="0px" v-loading="loading" ref="loginForm">
