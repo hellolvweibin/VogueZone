@@ -15,7 +15,7 @@
           <el-button @click="$router.push({path:'/user/settings/profiles'})" class="button_ensure"
                      icon="el-icon-magic-stick"
                      style="color: white;float: right">
-            编辑个人资料
+            个人中心
           </el-button>
           <div>
           </div>
@@ -66,11 +66,15 @@
                       style="font-size: 15px;font-weight:bold;margin-left: 20px;font-family: Apple,serif">
           {{ item.navItem }}
         </el-menu-item>
-        <div style="float: right;margin-right: 100px;margin-top: 15px">
 
-        </div>
 
       </el-menu>
+
+      <div style="position:relative;width: 800px;margin-left: 25%;margin-top: 20px;height: 100%">
+        <el-card shadow="never" >
+          <router-view></router-view>
+        </el-card>
+      </div>
     </div>
 
 
@@ -78,7 +82,7 @@
 
 
 
-    <div class="footer">
+    <div class="footer" style="margin-top:40rem">
       <Footer/>
     </div>
 

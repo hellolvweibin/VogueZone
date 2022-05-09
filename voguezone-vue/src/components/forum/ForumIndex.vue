@@ -28,7 +28,7 @@
     </div>
     <div style="position: center">
       <el-button class="button_ensure" @click="$router.push({path:'/article/edit'})"
-                 style="color:#0f0f49; font-weight: bold;font-family: Apple,serif">
+                 style="color:#f6f6f8; font-weight: bold;font-size:16px;font-family: Apple,serif">
         Create New Post
       </el-button>
 

@@ -25,6 +25,7 @@
           <el-table-column
             label="文章封面"
             align="center">
+<!--            实现表格内的图片显示-->
             <template slot-scope="scope">
               <div ><el-image :src="scope.row.articleCover" class="articleCover" :fit="contain"></el-image></div>
 
@@ -47,26 +48,26 @@
         </el-table>
       </el-card>
       <!--弹窗-->
-<!--      <el-dialog :title="dialogTitle" width="50%" :visible.sync="iconFormVisible">-->
-<!--        <el-form :inline="true" :model="userInfo" class="demo-form-inline">-->
-<!--          <el-form-item label="文章标题">-->
-<!--            <el-input v-model="userInfo.name" placeholder="姓名"></el-input>-->
-<!--          </el-form-item>-->
-<!--          <el-form-item label="日期">-->
-<!--            <el-input v-model="userInfo.date" placeholder="日期"></el-input>-->
-<!--          </el-form-item>-->
-<!--          <el-form-item label="地址">-->
-<!--            <el-input v-model="userInfo.address" placeholder="地址"></el-input>-->
-<!--          </el-form-item>-->
-<!--          <el-form-item label="年龄">-->
-<!--            <el-input v-model="userInfo.age" placeholder="年龄"></el-input>-->
-<!--          </el-form-item>-->
-<!--        </el-form>-->
-<!--        <div slot="footer" class="dialog-footer">-->
-<!--          <el-button @click="iconFormVisible = false">取 消</el-button>-->
-<!--          <el-button type="primary" @click="submitUser()">确 定</el-button>-->
-<!--        </div>-->
-<!--      </el-dialog>-->
+      <el-dialog :title="dialogTitle" width="50%" :visible.sync="iconFormVisible">
+        <el-form :inline="true" :model="userInfo" class="demo-form-inline">
+          <el-form-item label="文章标题">
+            <el-input v-model="userInfo.name" placeholder="姓名"></el-input>
+          </el-form-item>
+          <el-form-item label="日期">
+            <el-input v-model="userInfo.date" placeholder="日期"></el-input>
+          </el-form-item>
+          <el-form-item label="地址">
+            <el-input v-model="userInfo.address" placeholder="地址"></el-input>
+          </el-form-item>
+          <el-form-item label="年龄">
+            <el-input v-model="userInfo.age" placeholder="年龄"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="iconFormVisible = false">取 消</el-button>
+          <el-button type="primary" @click="submitUser()">确 定</el-button>
+        </div>
+      </el-dialog>
     </div>
   </div>
 
@@ -140,7 +141,7 @@ export default {
     },
     // 删除
     remove(index, row) {
-      this.$confirm(`确定删除${row.name}吗?`, '提示', {
+      this.$confirm(`确定删除${row.articleTitle}吗?`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'error',
