@@ -3,7 +3,7 @@
 
     <div>
       <el-aside style="width: 200px;margin-top: 20px">
-        <SideMenu @indexSelect="listByGender" ref="sideMenu" style=" float: left; margin-top: 2%;"></SideMenu>
+        <SideMenu @indexSelect="listByGender" ref="sideMenu" style=" margin-top: 4%"></SideMenu>
       </el-aside>
 
     </div>
@@ -17,7 +17,7 @@
                  style="float: right;margin-right: 5%;margin-top: -2%"></SearchBar>
       <div style="height: 70px"></div>
 
-      <el-row style="height: 840px;position: relative;margin-left: 20%">
+      <el-row style="height: 840px;position: relative;margin-left: 22rem">
 
         <el-tooltip effect="dark" placement="right"
                     v-for="model in models.slice((currentPage-1)*pagesize,currentPage*pagesize)"

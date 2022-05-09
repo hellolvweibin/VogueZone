@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .categories {
   position: absolute;
-  margin-left: 50% ;
+  margin-left: 980px ;
   left: -800px;
   top: 200px;
   width: 150px;
