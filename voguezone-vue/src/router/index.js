@@ -127,6 +127,11 @@ export default new Router({
       name:ArticleEditor,
       component:ArticleEditor
     },
+    {
+      path:'/article/comment',
+      name:CommentIndex,
+      component:CommentIndex
+    },
 
     {
       path:'/article',

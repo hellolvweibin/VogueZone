@@ -86,12 +86,12 @@ export default {
     return {
       articles: [{
         articleId: '1',
-        articleTitle: '凉风有幸',
+        articleTitle: '凉风有兴',
         articleAbstract:'我是摘要',
         articleCover: 'https://static.wixstatic.com/media/94e66f_38d2a055626b40069914b0caf08c25cc~mv2_d_2415_1318_s_2.jpg/v1/fill/w_225,h_160,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/94e66f_38d2a055626b40069914b0caf08c25cc~mv2_d_2415_1318_s_2.jpg',
         createTime:'2022-04-23 16:35:46',
-        articleLikeNum: '100',
-        articleCommentNum: '100',
+        articleLikeNum: '10',
+        articleCommentNum: '15',
 
       },
         {

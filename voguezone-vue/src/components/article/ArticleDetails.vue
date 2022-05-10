@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body">
     <Header style="margin-top: 0%"/>
     <div class="articles-area">
       <el-card style="text-align: left;width: 990px;margin: 35px auto 0 auto">
@@ -13,30 +13,62 @@
         </div>
       </el-card>
     </div>
-    <div style="position: absolute;bottom: 0;left: 0;height: 20px;width: 100%;">
+    <div>
+
+
+      <el-card style="text-align: left;width: 990px;margin: 35px auto 0 auto">
+        <el-row>
+          <el-col>
+            <span><Icon type="md-thumbs-up" size="20"/>点赞</span>&nbsp;
+            <span @click="showComment"><Icon type="ios-text" size="20"/>
+              <span v-if="show===false">查看评论</span>
+              <span v-if="show===true">收起评论</span>
+            </span>
+
+
+          </el-col>
+          <el-col>
+            <div v-if="show">
+              <comment :comments="CommentData"></comment>
+            </div>
+          </el-col>
+        </el-row>
+
+
+      </el-card>
 
     </div>
+    <div>
+      <Footer/>
+    </div>
 
-    <Footer/>
+
   </div>
 
 </template>
 
 <script>
+import * as CommentData from '../../style/js/mockdata'
+import comment from '../comment/CommentForm'
 import Header from "@/components/common/Header";
 
 import Footer from "@/components/common/Footer";
 
 export default {
   name: 'ArticleDetails',
-  components: {Header, Footer},
+  components: {Header, Footer, comment},
   data() {
     return {
-      article: []
+      article: [],
+      CommentData: [],
+      show: false,
     }
   },
   mounted() {
     this.loadArticle()
+  },
+  created() {
+    this.CommentData = CommentData.comment.data
   },
   methods: {
     loadArticle() {
@@ -47,6 +79,9 @@ export default {
 
         }
       })
+    },
+    showComment: function () {
+      this.show = !this.show
     }
   }
 }
@@ -55,5 +90,9 @@ export default {
 <style scoped>
 
 @import "../../style/markdown.css";
+
+.body {
+  min-height: 100vh;
+}
 </style>
 

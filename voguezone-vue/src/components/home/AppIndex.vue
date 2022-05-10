@@ -133,7 +133,7 @@
           src="https://images.pexels.com/photos/247204/pexels-photo-247204.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           style="width: 370px;height: 246px"/>
       </div>
-      <div class="model" style="position: absolute;right: 28%">
+      <div class="model" style="position: absolute;right: 28%;;margin-top: 18px">
         <div>
           <span
             style="color:black;font-family:Apple,serif;font-size: 40px;font-weight:bold;font-style: italic">模特之家</span><br>

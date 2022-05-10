@@ -21,6 +21,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="login">登录</el-dropdown-item>
             <el-dropdown-item command="register">注册</el-dropdown-item>
+            <el-dropdown-item command="user">个人中心</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -70,8 +71,10 @@ export default {
     LoginOrResister(command) {
       if(command==="login"){
         this.$router.replace({path:'/login'})
-      }else {
+      }else if(command==="register"){
         this.$router.replace({path:'/register'})
+      }else{
+        this.$router.replace({path:'/user'})
       }
     },
 
