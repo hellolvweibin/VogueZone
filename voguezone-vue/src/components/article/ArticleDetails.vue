@@ -19,10 +19,21 @@
       <el-card style="text-align: left;width: 990px;margin: 35px auto 0 auto">
         <el-row>
           <el-col>
-            <span><Icon type="md-thumbs-up" size="20"/>点赞</span>&nbsp;
-            <span @click="showComment"><Icon type="ios-text" size="20"/>
+            <span class="like" :class="{active:isLike}" @click="likeClick()">
+              <span v-if="isLike===true"><Icon type="ios-thumbs-up" size="20"/></span>
+              <span v-if="isLike===false"><Icon type="ios-thumbs-up-outline" size="20"/></span>
+              <span class="like-num"
+                    style="cursor: pointer">{{ likeNum > 0 ? likeNum + '人觉得很赞' : '赞' }}</span></span>&nbsp;
+
+            <!--            style="cursor: pointer" 实现悬停是手指-->
+            <span style="cursor: pointer" @click="showComment"><Icon type="ios-text" size="20"/>
               <span v-if="show===false">查看评论</span>
-              <span v-if="show===true">收起评论</span>
+              <span v-if="show===true">收起评论</span>&nbsp;
+            </span>
+
+            <span style="cursor: pointer" @click="articleCollect">
+             <span v-if="collect===false"><Icon type="ios-paw-outline" size="20"/>收藏</span>
+              <span v-if="collect===true"><Icon type="ios-paw" size="20"/>已收藏</span>
             </span>
 
 
@@ -62,6 +73,9 @@ export default {
       article: [],
       CommentData: [],
       show: false,
+      isLike: false,
+      likeNum: 3,
+      collect:false,
     }
   },
   mounted() {
@@ -82,7 +96,28 @@ export default {
     },
     showComment: function () {
       this.show = !this.show
-    }
+    },
+    articleCollect: function () {
+      this.collect = !this.collect
+    },
+    /**
+     * 点赞
+     */
+    likeClick() {
+      let _this = this
+      if (_this.isLike === null) {
+        _this.isLike=true
+        _this.likeNum++
+      } else {
+        if (this.isLike) {
+          _this.likeNum--
+        } else {
+          _this.likeNum++
+        }
+        _this.isLike = !_this.isLike
+      }
+    },
+
   }
 }
 </script>

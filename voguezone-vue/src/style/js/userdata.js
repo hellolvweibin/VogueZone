@@ -9,7 +9,7 @@ const userData = {
       alias: '你在叫什么？', //用户昵称
       gender: '2',  //用户性别
       bio: '改变，就是一种好事!!!!',   //用户简介
-      avatar: 'http://ww4.sinaimg.cn/bmiddle/006DLFVFgy1ft0j2pddjuj30v90uvagf.jpg', //评论者头像
+      avatar: 'https://static.wixstatic.com/media/94e66f_9a3b0c07ff934e1985f88a7a8d0b5498~mv2.jpg/v1/fill/w_225,h_160,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/94e66f_9a3b0c07ff934e1985f88a7a8d0b5498~mv2.jpg', //评论者头像
       role: 1, //用户角色
       status: 1,  //用户状态
       creatTime:'2022-07-05 08:30',
