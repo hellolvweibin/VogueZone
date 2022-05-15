@@ -157,6 +157,7 @@ export default {
                 type: 'success',
                 message: '发表成功'
               })
+              this.$router.replace({path:'/forum'})
             }
 
           })

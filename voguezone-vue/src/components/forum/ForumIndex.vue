@@ -153,7 +153,7 @@ export default {
       this.$axios
         .get('/admin/article/search?keywords=' + this.$refs.searchBar.keywords, {}).then(resp => {
         if (resp && resp.status === 200 && resp.data.result.length !== 0) {
-          _this.articles = resp.data.result.records
+          _this.articles = resp.data.result
         } else {
           _this.$notify.error({
             title: '出错啦',
